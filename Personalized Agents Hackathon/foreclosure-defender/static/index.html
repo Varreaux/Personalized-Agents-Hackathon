@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foreclosure Defender - AI Security Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Foreclosure Defender</h1>
+            <p class="subtitle">AI Agent Red-Team Security Dashboard</p>
+            <div id="health-status" class="health-badge">Checking...</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <button class="tab active" data-tab="dashboard">Dashboard</button>
+            <button class="tab" data-tab="attacks">Attack Prompts</button>
+            <button class="tab" data-tab="chat">Chat</button>
+            <button class="tab" data-tab="data">Mortgage Data</button>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <section id="dashboard" class="tab-content active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Attacks</h3>
+                    <div id="stat-total" class="stat-value">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Blocked</h3>
+                    <div id="stat-blocked" class="stat-value green">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Bypassed</h3>
+                    <div id="stat-bypassed" class="stat-value red">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Block Rate</h3>
+                    <div id="stat-rate" class="stat-value">--</div>
+                </div>
+            </div>
+
+            <div class="actions-bar">
+                <button id="run-all-btn" class="btn btn-danger" onclick="runAllAttacks()">Run All Attacks</button>
+                <button class="btn btn-secondary" onclick="refreshLog()">Refresh Log</button>
+            </div>
+
+            <h2>Attack Log</h2>
+            <div id="attack-log" class="log-container">
+                <p class="empty-state">No attacks have been run yet. Click "Run All Attacks" to begin testing.</p>
+            </div>
+        </section>
+
+        <!-- Attacks Tab -->
+        <section id="attacks" class="tab-content">
+            <h2>Available Attack Prompts</h2>
+            <div id="attack-list" class="attack-list">
+                <p class="empty-state">Loading attack prompts...</p>
+            </div>
+        </section>
+
+        <!-- Chat Tab -->
+        <section id="chat" class="tab-content">
+            <h2>Chat with Agent</h2>
+            <div id="chat-messages" class="chat-messages">
+                <div class="chat-msg system">Send a message to test the AI agent directly.</div>
+            </div>
+            <div class="chat-input-row">
+                <input type="text" id="chat-input" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChat()">
+                <button class="btn btn-primary" onclick="sendChat()">Send</button>
+            </div>
+        </section>
+
+        <!-- Data Tab -->
+        <section id="data" class="tab-content">
+            <h2>Mortgage Data</h2>
+            <div id="mortgage-data" class="data-container">
+                <p class="empty-state">Loading mortgage data...</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

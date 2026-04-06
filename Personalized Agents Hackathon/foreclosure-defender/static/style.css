@@ -1,0 +1,420 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1117;
+    color: #e1e1e6;
+    min-height: 100vh;
+}
+
+header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-bottom: 1px solid #2a2a3e;
+    padding: 1.5rem 2rem;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.subtitle {
+    color: #8888aa;
+    font-size: 0.9rem;
+}
+
+.health-badge {
+    margin-left: auto;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #333;
+    color: #888;
+}
+
+.health-badge.ok {
+    background: #0d3320;
+    color: #4ade80;
+}
+
+.health-badge.degraded {
+    background: #3d2a0a;
+    color: #fbbf24;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #2a2a3e;
+}
+
+.tab {
+    background: none;
+    border: none;
+    color: #8888aa;
+    padding: 0.75rem 1.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    color: #ccc;
+}
+
+.tab.active {
+    color: #818cf8;
+    border-bottom-color: #818cf8;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 0.8rem;
+    color: #8888aa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stat-value.green { color: #4ade80; }
+.stat-value.red { color: #f87171; }
+
+.actions-bar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.btn {
+    padding: 0.6rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: #818cf8;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #6366f1;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-secondary {
+    background: #2a2a3e;
+    color: #ccc;
+}
+
+.btn-secondary:hover {
+    background: #3a3a4e;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.log-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.log-entry {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 6px;
+    padding: 1rem;
+}
+
+.log-entry.blocked {
+    border-left: 3px solid #4ade80;
+}
+
+.log-entry.bypassed {
+    border-left: 3px solid #f87171;
+}
+
+.log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.log-id {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #818cf8;
+}
+
+.log-category {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: #2a2a3e;
+    color: #aaa;
+}
+
+.log-status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.log-status.blocked {
+    background: #0d3320;
+    color: #4ade80;
+}
+
+.log-status.bypassed {
+    background: #3d1515;
+    color: #f87171;
+}
+
+.log-prompt {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.log-response {
+    font-size: 0.85rem;
+    color: #888;
+    background: #111;
+    padding: 0.5rem;
+    border-radius: 4px;
+    max-height: 100px;
+    overflow-y: auto;
+}
+
+.attack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.attack-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 6px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.attack-info {
+    flex: 1;
+}
+
+.attack-info h4 {
+    font-size: 0.9rem;
+    color: #818cf8;
+    margin-bottom: 0.25rem;
+}
+
+.attack-info .category {
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+}
+
+.attack-info .prompt-text {
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.chat-messages {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    padding: 1rem;
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.chat-msg {
+    padding: 0.75rem;
+    border-radius: 6px;
+    max-width: 80%;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.chat-msg.user {
+    background: #2d2d6b;
+    color: #ccc;
+    align-self: flex-end;
+}
+
+.chat-msg.agent {
+    background: #1e2a1e;
+    color: #ccc;
+    align-self: flex-start;
+}
+
+.chat-msg.system {
+    background: #2a2a3e;
+    color: #888;
+    align-self: center;
+    font-style: italic;
+    font-size: 0.85rem;
+}
+
+.chat-input-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chat-input-row input {
+    flex: 1;
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 6px;
+    padding: 0.75rem;
+    color: #e1e1e6;
+    font-size: 0.9rem;
+}
+
+.chat-input-row input:focus {
+    outline: none;
+    border-color: #818cf8;
+}
+
+.data-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.property-card {
+    background: #1a1a2e;
+    border: 1px solid #2a2a3e;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.property-card h4 {
+    color: #818cf8;
+    margin-bottom: 0.5rem;
+}
+
+.property-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.property-details dt {
+    color: #888;
+}
+
+.property-details dd {
+    color: #ccc;
+    font-weight: 500;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-badge.current { background: #0d3320; color: #4ade80; }
+.status-badge.delinquent { background: #3d2a0a; color: #fbbf24; }
+.status-badge.in_foreclosure { background: #3d1515; color: #f87171; }
+
+.empty-state {
+    text-align: center;
+    color: #666;
+    padding: 2rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .property-details {
+        grid-template-columns: 1fr;
+    }
+}

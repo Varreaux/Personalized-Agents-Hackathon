@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "gateway": {
+    "bind": "lan",
+    "port": 18789
+  },
+  "agents": {
+    "main": {
+      "name": "Foreclosure Defender",
+      "description": "AI agent for mortgage and foreclosure assistance",
+      "model": "auto"
+    }
+  }
+}
