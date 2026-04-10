@@ -14,10 +14,7 @@ from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 # Load .env from parent directory (Personalized Agents Hackathon/)
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-OPENCLAW_WS_URL = os.getenv(
-    "OPENCLAW_WS_URL",
-    "wss://18789-01kncppres6c7avpmnb2c43n2e.cloudspaces.litng.ai"
-)
+OPENCLAW_WS_URL = os.getenv("OPENCLAW_WS_URL", "")
 OPENCLAW_API_KEY = os.getenv("OPENCLAW_API_KEY", "")
 
 DEFAULT_SESSION_KEY = "agent:main:main"

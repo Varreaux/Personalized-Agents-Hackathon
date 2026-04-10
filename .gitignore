@@ -1,4 +1,10 @@
-CLAUDE.md
-prd.json
-PRD.md
-ralph.sh
+.openclaw/
+.lightning_studio/
+__pycache__/
+*.pyc
+.env
+.device_private_key.pem
+node_modules/
+AGENT_CONTEXT.md
+system-diagram.html
+work_done_so_far.md
