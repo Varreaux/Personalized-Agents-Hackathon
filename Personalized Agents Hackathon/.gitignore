@@ -3,4 +3,5 @@
 __pycache__/
 *.pyc
 .env
+.device_private_key.pem
 node_modules/
